@@ -20,7 +20,7 @@ body {
 .onibus {
   position: relative;
   margin-left: 40px;
-  animation: passouNoBuraco 1s linear infinite;
+  animation: passouNoBuraco 1.5s linear infinite;
 }
 .onibus .retrovisor {
   position: relative;
@@ -100,6 +100,16 @@ body {
   left: 0;
   z-index: 3;
   background-color: #cf1415;
+}
+.onibus .frente .parabrisa {
+  display: block;
+  height: 121.6216216216px;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: #242a6e;
 }
 .onibus .frente .pintura-azul {
   display: block;
@@ -303,6 +313,16 @@ body {
   border: 30.4054054054px solid #242a6e;
   border-left: 0px;
 }
+.onibus .lataria .codigo-onibus {
+  position: absolute;
+  margin-top: 143.0842607313px;
+  margin-right: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  right: 0;
+  font-weight: 900;
+  color: #bbbcc5;
+}
 .onibus .roda {
   width: 113.9240506329px;
   height: 113.9240506329px;
@@ -421,6 +441,12 @@ body {
     transform: rotate(-2deg);
   }
   60% {
+    transform: rotate(2deg);
+  }
+  80% {
+    transform: rotate(-3deg);
+  }
+  90% {
     transform: rotate(2deg);
   }
   100% {
