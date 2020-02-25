@@ -8,10 +8,10 @@
     box-sizing: border-box;
 }
 
-
 $onibusComprimento: 900px;
 $rodaCircunferencia: $onibusComprimento / 7.9;
 $onibusAltura: $onibusComprimento / 3.7;
+$corOnibus: #b4b5be;
 
 html,
 body {
@@ -25,24 +25,240 @@ body {
 
 .onibus {
     position: relative;
+    margin-left: 40px;
     animation: passouNoBuraco 1s linear infinite;
+    .retrovisor {
+        position: relative;
+        z-index: 9;
+
+        .espelho {
+            margin-top: $onibusAltura / 8;
+            position: absolute;
+            display: block;
+            background-color: #000;
+            width: $onibusAltura / 10;
+            height: $onibusAltura / 3.5;
+            border-radius: 7px;
+            left: -$onibusAltura / 7;
+            box-shadow: 4px 5px 4px 2px #00000029;
+            &:before {
+                position: absolute;
+                left: 0;
+                z-index: 5;
+                content: " ";
+                width: 100%;
+                height: $onibusAltura / 3.5;
+                opacity: 1;
+                background: linear-gradient(to bottom, #00000000, #ffffff54, #b4b5be00);
+            }
+        }
+        .cabo {
+            margin-top: $onibusAltura / 11;
+            position: absolute;
+            display: block;
+            background-color: transparent;
+            border: $onibusAltura / 40 solid #000;
+            width: $onibusAltura / 7;
+            height: $onibusAltura / 9;
+            border-radius: 7px;
+            left: -$onibusAltura / 9;
+            border-bottom: 0px;
+            border-right: 0px;
+            border-top-right-radius: 0px;
+            z-index: 2;
+            &:before {
+                position: absolute;
+                right: 0;
+                z-index: 5;
+                content: " ";
+                width: $onibusAltura / 20;
+                height: $onibusAltura / 20;
+                margin-right: -$onibusAltura / 26;
+                margin-top: -$onibusAltura / 26;
+                border-radius: 50%;
+                background: #000;
+                z-index: -1;
+            }
+        }
+    }
+    .frente {
+        content: " ";
+        background-color: $corOnibus;
+        width: 45px;
+        height: $onibusAltura;
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 9;
+        margin-left: -30px;
+        border-top-left-radius: 100%;
+        border-bottom-left-radius: 30px;
+        z-index: 2;
+        overflow: hidden;
+        .pintura-vermelha {
+            display: block;
+            background-color: #b4b5be;
+            height: $onibusAltura / 5.3;
+            width: $onibusComprimento / 1.16;
+            position: absolute;
+            bottom: ($onibusAltura / 6);
+            left: 0;
+            z-index: 3;
+            background-color: #cf1415;
+        }
+
+        .pintura-azul {
+            display: block;
+            background-color: #b4b5be;
+            height: $onibusAltura / 8;
+            width: $onibusComprimento / 1.16;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+            background-color: #242a6e;
+        }
+
+        &:before {
+            position: absolute;
+            left: 0;
+            z-index: 5;
+            content: " ";
+            top: 40%;
+            width: $onibusComprimento;
+            height: $onibusAltura / 2;
+            opacity: 1;
+            background: linear-gradient(to bottom, #ffffff00, #ffffff36, #b4b5be00);
+        }
+    }
+
+    &:before {
+        position: absolute;
+        left: 0;
+        z-index: 5;
+        content: " ";
+        top: 40%;
+        width: $onibusComprimento;
+        height: $onibusAltura / 2;
+        opacity: 1;
+        background: linear-gradient(to bottom, #ffffff00, #ffffff36, #b4b5be00);
+    }
+
     .lataria {
         position: relative;
         width: $onibusComprimento;
         height: $onibusAltura;
-        background:#242a6e;
+        background: #242a6e;
         border-radius: 10px;
-        border-top-left-radius: 30px;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 10px;
         border-bottom-right-radius: 30px;
         z-index: 5;
         display: block;
         overflow: hidden;
-        .grupo-janela-do-povo{
+        border: 0px;
+        //margin-left: $onibusComprimento / 20;
+        &:before {
+            position: absolute;
+            left: 0;
+            z-index: 5;
+            content: " ";
+            top: 40%;
+            width: $onibusComprimento;
+            height: $onibusAltura / 2;
+            opacity: 1;
+            background: linear-gradient(to bottom, #ffffff00, #ffffff36, #b4b5be00);
+        }
+        .luz-laranja {
+            position: absolute;
+            left: 0;
+            background-color: orange;
+            width: $onibusComprimento / 50;
+            height: $onibusAltura / 30;
+            border-radius: 3px;
+            z-index: 9;
+            bottom: $onibusAltura / 5;
+            margin-left: $onibusComprimento / 22;
+            animation: luzSeta 0.8s linear infinite;
+            &.luz-2 {
+                margin-left: $onibusComprimento / 3.5;
+            }
+
+            &.luz-3 {
+                margin-left: $onibusComprimento / 2;
+            }
+            &.luz-4 {
+                margin-left: $onibusComprimento / 1.12;
+            }
+        }
+
+        .janela-do-mestre {
+            position: absolute;
+            left: 0;
+            width: $onibusAltura / 5;
+            z-index: 4;
+            display: block;
+            background-color: #fff;
+            height: $onibusAltura / 2;
+            margin: $onibusAltura / 20;
+            border-radius: 10px;
+            float: left;
+            margin-right: 0px;
+            margin-top: $onibusAltura / 13;
+            border: ($onibusAltura / 45) solid #292929c7;
+            border-top-left-radius: 80%;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 2px;
+            margin-left: -0px;
+            border-right: 0px;
+            z-index: 10;
+            &:before {
+                content: " ";
+                position: absolute;
+                left: 0;
+                margin-left: $onibusAltura / 5.7;
+                width: $onibusAltura / 2;
+                margin-top: -($onibusAltura / 45);
+                z-index: 4;
+                display: block;
+                background-color: #fff;
+                height: $onibusAltura / 2.55;
+                border-radius: 10px;
+                border: ($onibusAltura / 45) solid #292929c7;
+                border-left: 0px;
+                border-bottom: 0px;
+                border-radius: 0px;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 19px;
+            }
+            &:after {
+                position: absolute;
+                background-color: #fff;
+                content: " ";
+                width: $onibusAltura / 1.87;
+                height: $onibusAltura / 4;
+                margin-left: $onibusAltura / 6.5;
+                bottom: $onibusAltura / 66;
+                z-index: 2;
+                left: 0;
+                transform: rotate(-8deg);
+                border: ($onibusAltura / 45) solid #292929c7;
+                border-bottom-right-radius: 22px;
+                border-bottom-left-radius: 3px;
+                border-right: 0px;
+                border-left: 0px;
+                border-top: 0px;
+                border-bottom-left-radius: 0px;
+            }
+        }
+        .grupo-janela-do-povo {
             position: absolute;
             right: 0;
-            margin-right: $onibusAltura / 20;
+            margin-right: $onibusAltura / 9;
             z-index: 4;
-            .janela{
+            .janela {
+                position: relative;
                 display: block;
                 background-color: #fff;
                 height: $onibusAltura / 2.3;
@@ -52,25 +268,24 @@ body {
                 float: left;
                 margin-right: 0px;
                 margin-top: $onibusAltura / 15;
-                border: ($onibusAltura / 45) solid #292929c7;
-
+                border: ($onibusAltura / 45) solid #626262;
+                &:before {
+                    content: " ";
+                    position: absolute;
+                    width: 100%;
+                    border-radius: 0px;
+                    left: 0;
+                    right: 0;
+                    background-color: #626262;
+                    margin-top: $onibusAltura / 4.9;
+                    height: $onibusAltura / 80;
+                }
             }
         }
-        &:before{
 
-            position: absolute;
-            left: 0;
-            z-index: 5;
-            content: ' ';
-            top: 40%;
-            width: $onibusComprimento;
-            height: $onibusAltura / 2;
-            opacity: 1;
-            background: linear-gradient(to bottom, #ffffff00, #ffffff36, #b4b5be00);
-        }
-        .pintura-vermelha{
+        .pintura-vermelha {
             display: block;
-            background-color: #b4b5be;;
+            background-color: #b4b5be;
             height: $onibusAltura * 1.7;
             width: $onibusComprimento / 1.16;
             position: absolute;
@@ -80,10 +295,9 @@ body {
             left: 0;
             z-index: 3;
             border: $onibusAltura / 5.3 solid #cf1415;
-            border-left: 0px; 
-            
+            border-left: 0px;
         }
-        .pintura-azul{
+        .pintura-azul {
             display: block;
             background-color: #242a6e;
             width: $onibusComprimento;
@@ -93,7 +307,7 @@ body {
             left: 0;
 
             display: block;
-            background-color: #b4b5be;;
+            background-color: #b4b5be;
             height: $onibusAltura * 2;
             width: $onibusComprimento / 1.1;
             position: absolute;
@@ -101,13 +315,9 @@ body {
             border-bottom-right-radius: 50%;
             left: 0;
             border: $onibusAltura / 8 solid #242a6e;
-            border-left: 0px; 
-            
+            border-left: 0px;
         }
-        
-        
     }
-    
 
     .roda {
         width: $rodaCircunferencia;
@@ -120,23 +330,22 @@ body {
         margin-bottom: -$rodaCircunferencia / 2.9;
         left: $onibusComprimento / 9;
         z-index: 5;
-        &:before{
+        &:before {
             background-color: gray;
             z-index: 1;
-            content: ' ';
+            content: " ";
             width: 100%;
             height: ($rodaCircunferencia / 1.5);
-            border-top-left-radius: $rodaCircunferencia ;
+            border-top-left-radius: $rodaCircunferencia;
             border-top-right-radius: $rodaCircunferencia;
             display: block;
             position: absolute;
             bottom: ($rodaCircunferencia / 2) - 17;
             border: ($rodaCircunferencia / 16) solid #3c417d;
             border-bottom: 0px;
-            margin-left: - 7px;
-
+            margin-left: -7px;
         }
-        
+
         &.traseira {
             margin-left: $onibusComprimento / 1.75;
         }
@@ -246,5 +455,17 @@ body {
 
     100% {
         transform: rotate(0deg);
+    }
+}
+@keyframes luzSeta {
+    0% {
+        box-shadow: none;
+    }
+    50% {
+        box-shadow: 1px 1px 13px 13px #ffb100ad;
+    }
+
+    100% {
+        box-shadow: none;
     }
 }
