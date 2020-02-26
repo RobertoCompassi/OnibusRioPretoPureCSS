@@ -4,8 +4,7 @@ Pure CSS and HTML Bus animation
 
 #### Ver exemplo publicado no GitHub Pages
 
-#####[View online clica aqui por favor] [Demo]
-[Demo]: https://robertocompassi.github.io/OnibusRioPretoPureCSS/
+https://robertocompassi.github.io/OnibusRioPretoPureCSS/
 
 Somente: 
 - ✔️ HTML
