@@ -17,10 +17,19 @@ html,
 body {
     padding: 0px;
     margin: 0px;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
-.cidade {
-    margin: 5%;
+.mao-invisivel-que-guia-o-onibus {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30vh;
+    margin-left: 15vw;
+    transform: rotate(-7deg);
+    background-color: transparent;
+    z-index: 9;
 }
 
 .onibus {
@@ -343,9 +352,9 @@ body {
     .roda {
         width: $rodaCircunferencia;
         height: $rodaCircunferencia;
-        background-color: #fff;
+        background-color: transparent;
         border-radius: 50%;
-        display: block;
+        display: block; 
         position: absolute;
         bottom: 0;
         margin-bottom: -$rodaCircunferencia / 2.9;
@@ -463,23 +472,16 @@ body {
     }
 
     20% {
-        transform: rotate(2deg);
+        transform: rotate(1deg);
     }
 
     40% {
-        transform: rotate(-2deg);
+        transform: rotate(-1deg);
     }
 
     60% {
-        transform: rotate(2deg);
+        transform: rotate(1deg);
     }
-    80% {
-        transform: rotate(-3deg);
-    }
-    90% {
-        transform: rotate(2deg);
-    }
-
     100% {
         transform: rotate(0deg);
     }
@@ -496,3 +498,5 @@ body {
         box-shadow: none;
     }
 }
+
+@import 'cidade.scss';

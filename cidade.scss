@@ -1,0 +1,36 @@
+.asfalto{
+    background-color: #151515;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    bottom: 0;
+    margin-top: 60vh;
+    transform: skew(0deg, -7deg);
+    position: relative;
+    .faixas-amarelas{
+        width: 200vw;
+        position: absolute;
+        display: inline-block;
+        top: 17vh;
+        left: 0;
+        animation: faixasAndando 5s linear  infinite;
+        transition: all 5s linear;
+        overflow: hidden;
+        span{
+            background-color: #bba547;
+            width: 10rem;
+            height: 0.8rem; 
+            display: inline-block;
+            margin-right: 15rem;
+        }
+    }
+}  
+
+@keyframes faixasAndando {
+    0% {
+        margin-left: 100vw;
+    }
+    100%{
+        margin-left: -100vw;
+    }
+}
